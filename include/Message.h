@@ -1,6 +1,7 @@
 #ifndef Message_L
 #define Message_L
 #include "Contact.h"
+#include "MessageThread.h"
 namespace bsms
 {
   class Message
@@ -8,9 +9,10 @@ namespace bsms
   private:
   public:
     typedef int TimeStamp;
-    Message(Contact::ContactId owner, std::string message, TimeStamp time);
+    Message(MessageThread * owner, std::string message, TimeStamp time);
 
-    Contact::ContactId get_owner_id();
+    //gets the message thread that this message belongs to
+    MessageThread * get_owner();
     std::string get_message();
     std::string get_formatted_time();
   };
