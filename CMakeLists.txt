@@ -6,7 +6,7 @@ project(BluetoothGUI)
 find_package(wxWidgets REQUIRED)
 
 include( "${wxWidgets_USE_FILE}" )
-include( "include/" )
+include_directories( "include/" )
 set(GUI
 	src/gui/)
 set(TARGET_DIR

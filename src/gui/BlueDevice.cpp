@@ -1,15 +1,11 @@
-#include "BlueDevice.h"
-#include "defines.h"
+#include <gui/BlueDevice.h>
+#include <appstrings.h>
 
 BlueDevice::BlueDevice(wxWindow *parent)
 	: wxPanel(parent)
 {
 	mainSizer = new wxBoxSizer(wxHORIZONTAL);
-	infoSizer = new wxGridSizer(2, 2, 1, 1);
-
-	//deviceBitmap = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT(IMG_PHONE), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
-
-	deviceName=wxT("my device rox. hah.");
+	infoSizer = new wxBoxSizer(wxVERTICAL);
 
 	nameLabelText = new wxStaticText(this, wxID_ANY, wxT(STR_DEVICE_NAME));
 	nameText = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, 0, wxTextValidator(wxFILTER_NONE, &deviceName));
@@ -17,9 +13,10 @@ BlueDevice::BlueDevice(wxWindow *parent)
 	numberLabelText = new wxStaticText(this, wxID_ANY, wxT(STR_DEVICE_NUM));
 	numberText = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, 0, wxTextValidator(wxFILTER_NUMERIC, &deviceNumber));
 
-	//mainSizer->Add(deviceBitmap);
+	mainSizer->AddSpacer(10);
 	infoSizer->Add(nameLabelText);
 	infoSizer->Add(nameText);
+	infoSizer->AddSpacer(10);
 	infoSizer->Add(numberLabelText);
 	infoSizer->Add(numberText);
 	mainSizer->Add(infoSizer);

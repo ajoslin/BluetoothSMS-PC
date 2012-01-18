@@ -1,6 +1,6 @@
-#include "BlueFrame.h"
-#include "BlueDevice.h"
-#include "defines.h"
+#include <gui/BlueFrame.h>
+#include <gui/BlueDevice.h>
+#include <appstrings.h>
 
 BlueFrame::BlueFrame(const wxString title)
 	: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxDefaultSize)
@@ -20,27 +20,24 @@ BlueFrame::BlueFrame(const wxString title)
  	deviceSizer->Add(devicesLabel);
  	deviceSizer->Add(devicesBook, 1, wxEXPAND);
  	deviceSizer->Add(newDeviceButton);
- 	deviceSizer->SetMinSize(wxSize(GetSize().GetWidth(), 100));
+ 	deviceSizer->SetMinSize(wxSize(GetSize().GetWidth(), 150));
 
  	mainSizer->Add(deviceSizer);
 
- 	newDeviceButton->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(BlueFrame::onNewDeviceButtonPressed));
+ 	Connect(newDeviceButton->GetId(), wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(BlueFrame::onNewDeviceButtonPressed));
 
  	SetSizerAndFit(mainSizer);
 }
 
 void BlueFrame::onNewDeviceButtonPressed(wxCommandEvent &e)
 {
-	BlueDevice *device = new BlueDevice(devicesBook);
-	//device->setName(name);
-	//device->setNumber(number);
-
-	//addDevice(wxT(STR_DEVICE_NAME_DEF), wxT(STR_DEVICE_NUM_DEF));
+	addDevice(wxT(STR_DEVICE_NAME_DEF), wxT(STR_DEVICE_NUM_DEF));
 }
 
 void BlueFrame::addDevice(wxString name, wxString number)
 {
-	
-
-	//devicesBook->AddPage(new wxPanel(devicesBook), wxT("HI"));
+	BlueDevice *device = new BlueDevice(devicesBook);
+	device->setName(name);
+	device->setNumber(number);
+	devicesBook->AddPage(device, name);
 }
