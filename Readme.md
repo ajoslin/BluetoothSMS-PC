@@ -7,4 +7,4 @@ Dependencies
 
 [hidapi](https://github.com/signal11/hidapi) Multi-platform bluetooth library
 
-[wxWidgets](http://www.wxwidgets.org/) GUI Library
+[wxWidgets](http://www.wxwidgets.org/) Multi-platform GUI library
