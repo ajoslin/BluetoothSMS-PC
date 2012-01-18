@@ -1,3 +1,4 @@
+class Message;
 #ifndef Message_L
 #define Message_L
 #include "Contact.h"

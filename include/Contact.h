@@ -6,13 +6,14 @@ namespace bsms
 {
   class Contact
   {
+  public:
+    typedef int ContactId;
   private:
     static std::map<ContactId,Contact> contact_list;
   public:
     Contact(std::string name, std::string number);
 
     //Id used to reference contacts
-    typedef int ContactId;
     
     //Pulls contact information from global contact list. Returns a copy
     static Contact find_by_id(ContactId id);

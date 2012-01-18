@@ -1,6 +1,8 @@
+class MessageThread;
 #ifndef MessageThread_L
 #define MessageThread_L
 #include <vector>
+#include "Message.h"
 namespace bsms
 {
   class MessageThread
