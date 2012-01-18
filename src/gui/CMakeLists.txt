@@ -14,5 +14,5 @@ set(GUI_SRC
 )
 			
 add_executable(BluetoothGUI ${GUI_SRC})
-
+set(CMAKE_CXX_FLAGS "-g -Wall")
 target_link_libraries(BluetoothGUI ${wxWidgets_LIBRARIES})
