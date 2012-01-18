@@ -1,5 +1,0 @@
-sudo yum install cmake
-mkdir build
-cd build
-cmake ..
-make

@@ -3,15 +3,12 @@
 
 #include "wx/wx.h"
 #include "wx/statbmp.h"
-#include <string>
 
 class BlueDevice : public wxPanel
 {
 private:
 	wxBoxSizer *mainSizer;
-	wxGridSizer *infoSizer;
-
-	wxStaticBitmap *deviceBitmap;
+	wxBoxSizer *infoSizer;
 
 	wxStaticText *nameLabelText;
 	wxTextCtrl *nameText;
@@ -22,7 +19,6 @@ private:
 	wxString deviceName;
 	wxString deviceNumber;
 
-	bool isEditMode;
 public:
 	BlueDevice(wxWindow *parent);
 
