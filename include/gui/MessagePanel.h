@@ -20,7 +20,7 @@ public:
 	MessagePanel(wxWindow * parent);
 	MessagePanel(wxWindow * parent, bsms::Message message) : MessagePanel(parent) { setMessage(message); }
 
-	void setMessage(bsms::Message message);
+	void set_message(bsms::Message message);
 };
 
 #endif

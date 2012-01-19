@@ -17,7 +17,6 @@ private:
 	wxButton * ok_button;
 	wxButton * cancel_button;
 	
-	void event_button_pressed(wxCommandEvent event);
 public:
 	void add_device(Device *d);
 };

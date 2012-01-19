@@ -6,7 +6,7 @@
 #include "wx/srchctrl.h"
 
 //Toolbar options
-enum
+enum ToolbarOptions
 {
 	TOOL_Devices,
 };
@@ -19,19 +19,16 @@ private:
 	wxToolBar * main_toolbar;
 
 	//contact list with search
-	wxSearchControl * contacts_searchctrl;
+	wxSearchCtrl * contacts_searchctrl;
 	wxListBox * contacts_listbox;
 	wxButton * start_convo_button;
 
 	//message threads list with search
-	wxSearchControl * messages_searchctrl;
-	MessageThreadsPanel * messages_panel;
+	wxSearchCtrl * messages_searchctrl;
+	//MessageThreadsPanel * messages_panel;
 
 public:
 	MainFrame(const wxString title);
-
-	//wx events
-	void on_toolbar_devices(wxCommandEvent e);
 };
 
 #endif

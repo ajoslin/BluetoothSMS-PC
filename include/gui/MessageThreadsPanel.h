@@ -17,7 +17,7 @@ private:
 public:
 	MessageThreadsPanel(wxWindow *parent);
 
-	void addMessageThread(bsms::MessageThread thread);
+	void add_message_thread(bsms::MessageThread thread);
 };
 
 #endif
