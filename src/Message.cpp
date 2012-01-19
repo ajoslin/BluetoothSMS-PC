@@ -1,4 +1,4 @@
 #include "Message.h"
-namespace B_SMS
-{
-}
+START_BSMS
+
+END_BSMS
