@@ -18,12 +18,12 @@ set(TARGET
 set(GUI_SRC 
 	${GUI}Main.cpp
 	${GUI}BlueFrame.cpp
-	${GUI}BlueDevice.cpp
-)
+	${GUI}BlueDevice.cpp)
 set(SMS_SRC
 	${SMS}Contact.cpp
 	${SMS}Message.cpp
 	${SMS}MessageThread.cpp)
+	
 file(MAKE_DIRECTORY ${TARGET_DIR})			
 add_executable(${TARGET} ${GUI_SRC} ${SMS_SRC})
 set(CMAKE_CXX_FLAGS "-g -Wall")
