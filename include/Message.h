@@ -4,6 +4,8 @@ class Message;
 #include "bsms.h"
 #include "Contact.h"
 #include "MessageThread.h"
+#include <sstream>
+#include <string>
 START_BSMS
 class Message
 {
@@ -14,6 +16,7 @@ class Message
   std::string message;
   TimeStamp time;
  public:
+  Message();
   Message(MessageThread * owner, std::string message, TimeStamp time);
   
   //gets the message thread that this message belongs to
