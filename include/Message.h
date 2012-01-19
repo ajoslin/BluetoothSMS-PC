@@ -1,15 +1,20 @@
 class Message;
 #ifndef Message_L
 #define Message_L
+#include "bsms.h"
 #include "Contact.h"
 #include "MessageThread.h"
-namespace bsms
+namespace N_BSMS
 {
   class Message
   {
-  private:
   public:
     typedef int TimeStamp;
+  private:
+    MessageThread * owner;
+    std::string message;
+    TimeStamp time;
+  public:
     Message(MessageThread * owner, std::string message, TimeStamp time);
 
     //gets the message thread that this message belongs to

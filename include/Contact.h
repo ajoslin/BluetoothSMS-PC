@@ -1,10 +1,11 @@
 #ifndef Contact_L
 #define Contact_L
+#include"bsms.h"
 #include<string>
 #include<map>
 #define START_CONTACT_ID 0
 #define EMPTY_CONTACT -1
-namespace bsms
+namespace N_BSMS
 {
   class Contact
   {

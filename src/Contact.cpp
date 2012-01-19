@@ -1,5 +1,5 @@
 #include "Contact.h"
-namespace bsms
+namespace N_BSMS
 {
   std::map<Contact::ContactId,Contact> Contact::contact_list;
   
