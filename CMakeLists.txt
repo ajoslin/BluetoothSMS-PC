@@ -16,9 +16,8 @@ set(TARGET_DIR
 set(TARGET
 	${TARGET_DIR}bsms)
 set(GUI_SRC 
-	${GUI}Main.cpp
-	${GUI}BlueFrame.cpp
-	${GUI}BlueDevice.cpp)
+	${GUI}MainApp.cpp
+	${GUI}MainFrame.cpp)
 set(SMS_SRC
 	${SMS}Contact.cpp
 	${SMS}Message.cpp
