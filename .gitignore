@@ -1,4 +1,6 @@
 *.*~
+*.sublime-project
+*.sublime-workspace
 \#*
 CMakeCache.txt
 CMakeFiles/
