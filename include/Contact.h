@@ -2,6 +2,8 @@
 #define Contact_L
 #include<string>
 #include<map>
+#define START_CONTACT_ID 0
+#define EMPTY_CONTACT -1
 namespace bsms
 {
   class Contact
@@ -9,8 +11,14 @@ namespace bsms
   public:
     typedef int ContactId;
   private:
-    static std::map<ContactId,Contact> contact_list;
+    typedef std::map<ContactId,Contact> ContactMap;
+    static ContactMap contact_list;
+    static ContactId next_id;
+    std::string name;
+    std::string number;
+    ContactId id;
   public:
+    Contact();
     Contact(std::string name, std::string number);
 
     //Id used to reference contacts
@@ -21,6 +29,7 @@ namespace bsms
     std::string get_number();
     //Gets the contact's unique id
     ContactId get_id();
+    bool is_empty();
   };
 };
 #endif
