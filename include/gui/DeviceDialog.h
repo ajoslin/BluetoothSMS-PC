@@ -2,7 +2,7 @@
 #define DeviceWindow_L
 
 #include "wx/wx.h"
-#include "wx/notebook.h"
+#include "wx/dialog.h"
 
 class Device; //made up for now
 

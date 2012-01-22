@@ -19,13 +19,16 @@ private:
 	wxToolBar * main_toolbar;
 
 	//contact list with search
-	wxSearchCtrl * contacts_searchctrl;
-	wxListBox * contacts_listbox;
-	wxButton * start_convo_button;
+	wxSearchCtrl * contacts_search;
+	ContactsListView * contacts_list;
+	wxButton * contacts_open_button;
 
 	//message threads list with search
-	wxSearchCtrl * messages_searchctrl;
-	//MessageThreadsPanel * messages_panel;
+	wxSearchCtrl * messages_search;
+	MessageThreadsPanel * messages_panel;
+
+	void event_search_contacts(wxCommandEvent &);
+	void event_search_messages(wxCommandEvent &);
 
 public:
 	MainFrame(const wxString title);

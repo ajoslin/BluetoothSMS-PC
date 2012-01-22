@@ -11,13 +11,17 @@
 class MessageThreadsPanel : public wxPanel
 {
 private:
-	//stack so latest is on top
+	//stack so latest msg on top
 	std::stack<MessagePanel> messages;
 
 public:
 	MessageThreadsPanel(wxWindow *parent);
 
 	void add_message_thread(bsms::MessageThread thread);
+
+	//updates shown messagethreads for things matching search string
+	//returns whether atleast one is found
+	void filter(wxString);
 };
 
 #endif
