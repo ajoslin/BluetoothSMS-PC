@@ -1,6 +1,5 @@
 #include "Contact.h"
 
-
 START_BSMS
 
 ContactContainer Contact::contact_list;

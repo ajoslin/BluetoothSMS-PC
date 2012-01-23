@@ -2,6 +2,7 @@
 
 #include "Contact.h"
 
+#include<iostream>
 START_BSMS
 
 ContactContainer::ContactContainer()
@@ -18,36 +19,53 @@ void ContactContainer::add_contact( Contact contact )
   int letter = name[ 0 ] - 'A';
   ContactList::iterator end_it = contact_list.end();
   ContactList::iterator it = contact_letters[ letter ];
+  bool set_letter=false;
   if ( it == end_it )
     {
       int closestLetter = letter;
-      while (it==end_it && closestLetter-- > 0)
+      while (it==end_it && --closestLetter > 0)
 	{
 	  it = contact_letters[ closestLetter ];
 	}
-      it++;
-      contact_letters[ letter ] = it;
+      if (it==end_it)
+	it=contact_list.begin();
+      else
+	{
+	}
+      set_letter=true;
     }
   else
     {
-      bool is_done=false;
-      while (!is_done && it!=end_it)
+      bool is_done = false;
+      while (!is_done && it != end_it)
 	{
 	  unsigned int letter_index = 0;
 	  std::string other_name = it->get_name();
 	  unsigned int length = name.size();
 	  
 	  length = (length <= other_name.size()) ? length : other_name.size();
+	  while ( letter_index < length && name[ letter_index ] == other_name[ letter_index ] ) 
+	    {
+	      letter_index++;
+	    }
 	  
-	  while ( letter_index < length && name[ letter_index ] == other_name[ letter_index ] ) { }
-	  
-	  if ( letter_index == length || name[ letter_index ] < other_name[ letter_index ] )
+	  if ( letter_index == length )
+	    {
+	      is_done = true;
+	    }
+	  else if ( name[ letter_index ] < other_name[ letter_index ] )
 	    {
 	      is_done = true;
 	    }
 	}      
+      if ( it == contact_letters[ letter ] )
+	{
+	  set_letter=true;
+	}
     }
   contact_list.insert( it, ( contact_map[ contact.get_id() ] = contact ) );
+  if (set_letter)
+      contact_letters[ letter ] = it;
 }
 
 ContactContainer::ContactId ContactContainer::get_next_id()
