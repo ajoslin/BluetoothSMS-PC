@@ -27,22 +27,22 @@ Contact::ContactIterator Contact::end()
   return contact_list.end();
 }
 
-std::string Contact::get_name()
+std::string Contact::get_name() const
 {
   return name;
 }
 
-std::string Contact::get_number()
+std::string Contact::get_number() const
 {
   return number;
 }
 
-Contact::ContactId Contact::get_id()
+Contact::ContactId Contact::get_id() const
 {
   return id;
 }
 
-bool Contact::is_empty()
+bool Contact::is_empty() const
 {
   return id==EMPTY_CONTACT;
 }

@@ -46,16 +46,16 @@ class Contact
 
   
   //Gets Contact's name
-  std::string get_name();
+  std::string get_name() const;
   
   //Gets Contact's phone number
-  std::string get_number();
+  std::string get_number() const;
   
   //Gets the contact's unique id
-  Contact::ContactId get_id();
+  Contact::ContactId get_id() const;
   
   //Checks if Contact is not a dummy contact
-  bool is_empty();
+  bool is_empty() const;
 };
 END_BSMS
 #endif
