@@ -3,8 +3,6 @@
 ContactsListView::ContactsListView(wxWindow *parent, wxWindowID id)
 	: wxListView(parent, id, wxDefaultPosition, wxDefaultSize, wxLC_VIRTUAL | wxLC_SMALL_ICON | wxLC_SINGLE_SEL)
 {
-	InsertColumn(0, wxT(STR_NAME));
-	InsertColumn(1, wxT(STR_NUMBER));
 }
 
 void ContactsListView::repopulate_list(long item)
