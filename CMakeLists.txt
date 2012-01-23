@@ -21,7 +21,8 @@ set(GUI_SRC
 set(SMS_SRC
 	${SMS}Contact.cpp
 	${SMS}Message.cpp
-	${SMS}MessageThread.cpp)
+	${SMS}MessageThread.cpp
+	${SMS}ContactContainer.cpp)
 	
 file(MAKE_DIRECTORY ${TARGET_DIR})			
 add_executable(${TARGET} ${GUI_SRC} ${SMS_SRC})

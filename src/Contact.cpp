@@ -1,27 +1,19 @@
 #include "Contact.h"
+
+
 START_BSMS
 
-std::map<Contact::ContactId,Contact> Contact::contact_list;
-  
-Contact::ContactId Contact::next_id = START_CONTACT_ID;
+ContactContainer Contact::contact_list;
 
 Contact::Contact() : 
   id(EMPTY_CONTACT) { }
 
 Contact::Contact(std::string name_, std::string number_) :
-  name(name_), number(number_), id(next_id++) 
+  name(name_), number(number_), id(contact_list.get_next_id()) 
 {
-  Contact::contact_list[id] = *this; //copy constructor
+  contact_list.add_contact(*this); //copy constructor
 }
 
-Contact Contact::find_by_id(ContactId id)
-{
-  ContactMap::iterator it=Contact::contact_list.find(id);
-  if (it!=Contact::contact_list.end())
-    return it->second;
-  else
-    return Contact();
-}
 
 std::string Contact::get_name()
 {
