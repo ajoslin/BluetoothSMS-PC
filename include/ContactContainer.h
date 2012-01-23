@@ -34,9 +34,11 @@ class ContactContainer
   
   Contact find_by_id(ContactId id);
 
-  ContactIterator iterator();
+  ContactIterator begin();
 
   ContactIterator iterator(char StartLetter);
+  
+  ContactIterator end();
 };
 
 END_BSMS

@@ -14,6 +14,18 @@ Contact::Contact(std::string name_, std::string number_) :
   contact_list.add_contact(*this); //copy constructor
 }
 
+Contact::ContactIterator Contact::begin()
+{
+  return contact_list.begin();
+}
+Contact::ContactIterator Contact::iterator(char letter)
+{
+  return contact_list.iterator(letter);
+}
+Contact::ContactIterator Contact::end()
+{
+  return contact_list.end();
+}
 
 std::string Contact::get_name()
 {

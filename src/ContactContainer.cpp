@@ -55,9 +55,13 @@ ContactContainer::ContactId ContactContainer::get_next_id()
   return next_id++;
 }
 
-ContactContainer::ContactIterator ContactContainer::iterator()
+ContactContainer::ContactIterator ContactContainer::begin()
 {
   return contact_list.begin();
+}
+ContactContainer::ContactIterator ContactContainer::end()
+{
+  return contact_list.end();
 }
 
 ContactContainer::ContactIterator ContactContainer::iterator(char StartLetter)

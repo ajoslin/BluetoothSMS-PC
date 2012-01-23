@@ -15,6 +15,7 @@ class Contact
 {
  public:
   typedef ContactContainer::ContactId ContactId;
+  typedef ContactContainer::ContactIterator ContactIterator;
  private:
   std::string name;
 
@@ -37,10 +38,11 @@ class Contact
   static Contact find_by_id(Contact::ContactId id);
 
   //Starts iterator at 'A'
-  static const ContactContainer::ContactIterator iterator();
+  static ContactIterator begin();
+  static ContactIterator end();
   
   //Starts iterator at specified letter. Letter can be uppercase or lowercase, the function converts it to uppercase
-  static const ContactContainer::ContactIterator iterator(char StartLetter);
+  static ContactIterator iterator(char StartLetter);
 
   
   //Gets Contact's name
