@@ -13,4 +13,3 @@ class MainApp: public wxApp
 DECLARE_APP(MainApp)
 
 #endif
-

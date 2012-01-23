@@ -21,6 +21,8 @@ public:
 	MessagePanel(wxWindow * parent, bsms::Message message) : MessagePanel(parent) { setMessage(message); }
 
 	void set_message(bsms::Message message);
+
+	bool search(wxString);
 };
 
 #endif
