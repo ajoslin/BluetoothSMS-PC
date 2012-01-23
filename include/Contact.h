@@ -42,7 +42,7 @@ class Contact
   static ContactIterator end();
   
   //Starts iterator at specified letter. Letter can be uppercase or lowercase, the function converts it to uppercase
-  static ContactIterator iterator(char StartLetter);
+  static ContactIterator iterator(char StartLetter='A');
 
   
   //Gets Contact's name
