@@ -4,24 +4,21 @@
 #define MessageThreadsPanel_L
 
 #include "wx/wx.h"
-#include "wx/scrolbar.h"
 #include "MessageThread.h"
+#include "gui/MessagePanel.h"
+#include "gui/SearchableItemInterface.h"
 #include <stack>
 
-class MessageThreadsPanel : public wxPanel
+class MessageThreadsPanel : public wxPanel, SearchableItemInterface
 {
 private:
-	//stack so latest msg on top
-	std::stack<MessagePanel> messages;
 
 public:
-	MessageThreadsPanel(wxWindow *parent);
+	MessageThreadsPanel(wxWindow * parent);
 
-	void add_message_thread(bsms::MessageThread thread);
-
-	//updates shown messagethreads for things matching search string
-	//returns whether atleast one is found
-	void filter(wxString);
+	void set_search_key(wxString);
+	//called when opening or on search or when message threads change
+	void repopulate();
 };
 
 #endif

@@ -16,8 +16,14 @@ set(TARGET_DIR
 set(TARGET
 	${TARGET_DIR}bsms)
 set(GUI_SRC 
+	${GUI}ContactsListBox.cpp
+	${GUI}DeviceDialog.cpp
+	${GUI}DevicePanel.cpp
 	${GUI}MainApp.cpp
-	${GUI}MainFrame.cpp)
+	${GUI}MainFrame.cpp
+	${GUI}MessagePanel.cpp
+	${GUI}MessageThreadsPanel.cpp
+	)
 set(SMS_SRC
 	${SMS}Contact.cpp
 	${SMS}Message.cpp

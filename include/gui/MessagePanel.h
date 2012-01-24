@@ -3,8 +3,9 @@
 
 #include "wx/wx.h"
 #include "Message.h"
+#include "gui/SearchableItemInterface.h"
 
-class MessagePanel : public wxPanel
+class MessagePanel : public wxPanel, SearchableItemInterface
 {
 private:
 	wxBoxSizer * main_boxsizer;
@@ -18,11 +19,10 @@ private:
 
 public:
 	MessagePanel(wxWindow * parent);
-	MessagePanel(wxWindow * parent, bsms::Message message) : MessagePanel(parent) { setMessage(message); }
 
 	void set_message(bsms::Message message);
 
-	bool search(wxString);
+	void set_search_key(wxString);
 };
 
 #endif

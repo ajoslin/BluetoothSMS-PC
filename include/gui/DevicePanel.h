@@ -24,11 +24,6 @@ private:
 
 public:
 	DevicePanel(wxWindow * parent);
-
-	void set_name(wxString name);
-	void set_number(wxString number);
-	wxString get_name() { return device_name; }
-	wxString get_number() { return device_number; }
 };
 
 

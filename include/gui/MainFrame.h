@@ -1,9 +1,12 @@
 #ifndef BlueFrame_L
 #define BlueFrame_L
 
+//wx
 #include "wx/wx.h"
 #include "wx/toolbar.h"
 #include "wx/srchctrl.h"
+#include "gui/ContactsListBox.h"
+#include "gui/MessageThreadsPanel.h"
 
 //Toolbar options
 enum ToolbarOptions
@@ -20,13 +23,14 @@ private:
 
 	//contact list with search
 	wxSearchCtrl * contacts_search;
-	//ContactsListView * contacts_list;
+	ContactsListBox * contacts_list;
 	wxButton * contacts_open_button;
 
 	//message threads list with search
 	wxSearchCtrl * messages_search;
-	//MessageThreadsPanel * messages_panel;
+	MessageThreadsPanel * messages_panel;
 
+	//wxevents called by search controls
 	void event_search_contacts(wxCommandEvent &);
 	void event_search_messages(wxCommandEvent &);
 

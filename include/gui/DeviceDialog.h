@@ -3,6 +3,7 @@
 
 #include "wx/wx.h"
 #include "wx/dialog.h"
+#include "wx/listbook.h"
 
 class Device; //made up for now
 
@@ -18,7 +19,7 @@ private:
 	wxButton * cancel_button;
 	
 public:
-	void add_device(Device *d);
+	DeviceDialog(wxWindow *parent);
 };
 
 #endif
