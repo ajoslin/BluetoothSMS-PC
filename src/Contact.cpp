@@ -17,9 +17,13 @@ Contact::ContactIterator Contact::begin()
 {
   return contact_list.begin();
 }
-Contact::ContactIterator Contact::iterator(char letter)
+Contact::ContactIterator Contact::begin(char letter)
 {
-  return contact_list.iterator(letter);
+  return contact_list.begin(letter);
+}
+Contact::ContactIterator Contact::end(char letter)
+{
+  return contact_list.end(letter);
 }
 Contact::ContactIterator Contact::end()
 {

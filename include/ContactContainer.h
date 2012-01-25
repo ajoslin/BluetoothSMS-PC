@@ -5,6 +5,8 @@
 #include<map>
 #include<list>
 
+#define TOTAL_LETTERS ('Z'-'A')
+
 START_BSMS
 
 class Contact;
@@ -18,7 +20,7 @@ class ContactContainer
  private:
   typedef std::map<ContactId,Contact> ContactMap;
 
-  ContactList::iterator contact_letters['Z'-'A'];
+  ContactList::iterator contact_letters[TOTAL_LETTERS];
 
   ContactMap contact_map;
 
@@ -35,8 +37,10 @@ class ContactContainer
   Contact find_by_id(ContactId id);
 
   ContactIterator begin();
-
-  ContactIterator iterator(char StartLetter);
+  
+  ContactIterator begin(char startLetter);
+  
+  ContactIterator end(char letter);
   
   ContactIterator end();
 };

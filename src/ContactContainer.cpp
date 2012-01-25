@@ -82,9 +82,18 @@ ContactContainer::ContactIterator ContactContainer::end()
   return contact_list.end();
 }
 
-ContactContainer::ContactIterator ContactContainer::iterator(char StartLetter)
+ContactContainer::ContactIterator ContactContainer::begin(char StartLetter)
 {
   return contact_letters[ StartLetter - 'A' ];
+}
+
+ContactContainer::ContactIterator ContactContainer::end(char letter)
+{
+  char nextSet = letter;
+  ContactIterator end_it = contact_list.end();
+  ContactIterator it = end_it;
+  while ( ++nextSet < TOTAL_LETTERS && ( it = contact_letters[ nextSet ] ) == end_it ) { }
+  return end_it;
 }
 
 Contact ContactContainer::find_by_id(ContactContainer::ContactId id)
