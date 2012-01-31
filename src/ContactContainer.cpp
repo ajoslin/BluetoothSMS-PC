@@ -36,10 +36,11 @@ void ContactContainer::add_contact( Contact contact )
     }
   else
     {
+      std::cout << name << std::endl;
       bool is_done = false;
+      unsigned int letter_index = 0;
       while (!is_done && it != end_it)
 	{
-	  unsigned int letter_index = 0;
 	  std::string other_name = it->get_name();
 	  unsigned int length = name.size();
 	  
@@ -48,8 +49,8 @@ void ContactContainer::add_contact( Contact contact )
 	    {
 	      letter_index++;
 	    }
-	  
-	  if ( letter_index == length )
+	  std::cout << letter_index << std::endl;
+	  if ( letter_index >= length )
 	    {
 	      is_done = true;
 	    }
@@ -57,11 +58,13 @@ void ContactContainer::add_contact( Contact contact )
 	    {
 	      is_done = true;
 	    }
+	  else
+	    letter_index++;
 	}      
       if ( it == contact_letters[ letter ] )
 	{
 	  set_letter=true;
-	}
+	};
     }
   contact_list.insert( it, ( contact_map[ contact.get_id() ] = contact ) );
   if (set_letter)
@@ -89,7 +92,7 @@ ContactContainer::ContactIterator ContactContainer::begin(char StartLetter)
 
 ContactContainer::ContactIterator ContactContainer::end(char letter)
 {
-  char nextSet = letter;
+  int nextSet = letter-'A';
   ContactIterator end_it = contact_list.end();
   ContactIterator it = end_it;
   while ( ++nextSet < TOTAL_LETTERS && ( it = contact_letters[ nextSet ] ) == end_it ) { }
