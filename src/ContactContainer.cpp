@@ -42,9 +42,13 @@ void ContactContainer::add_contact( Contact contact )
 	{
 	  std::string other_name = it->get_name();
 	  unsigned int length = name.size();
+	  char new_letter, other_letter;
 	  
 	  length = (length <= other_name.size()) ? length : other_name.size();
-	  while ( letter_index < length && name[ letter_index ] == other_name[ letter_index ] ) 
+	  while ( letter_index < length && 
+		  (new_letter=GET_LETTER_INDEX( name[ letter_index ] ),
+		   other_letter=GET_LETTER_INDEX( other_name[ letter_index ] ),
+		   new_letter == other_letter ) ) 
 	    {
 	      letter_index++;
 	    }
