@@ -6,6 +6,7 @@
 #include<list>
 
 #define TOTAL_LETTERS ('Z'-'A')
+#define GET_LETTER_INDEX( L ) ( ((L)>='a' ? (L)-('a'-'Z') : (L)) - 'A' )
 
 START_BSMS
 
