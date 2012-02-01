@@ -23,14 +23,17 @@ void ContactContainer::add_contact( Contact contact )
   if ( it == end_it )
     {
       int closestLetter = letter;
-      while (it==end_it && --closestLetter > 0)
-	{
+      while (it==end_it && --closestLetter >= 0)
+	{	  
 	  it = contact_letters[ closestLetter ];
 	}
       if (it==end_it)
-	it=contact_list.begin();
+	{
+	  it=contact_list.begin();
+	}
       else
 	{
+	  it++;
 	}
       set_letter=true;
     }
@@ -46,9 +49,9 @@ void ContactContainer::add_contact( Contact contact )
 	  
 	  length = (length <= other_name.size()) ? length : other_name.size();
 	  while ( letter_index < length && 
-		  (new_letter=GET_LETTER_INDEX( name[ letter_index ] ),
-		   other_letter=GET_LETTER_INDEX( other_name[ letter_index ] ),
-		   new_letter == other_letter ) ) 
+		  (new_letter   = GET_LETTER_INDEX( name[ letter_index ] ),       //sets new letter
+		   other_letter = GET_LETTER_INDEX( other_name[ letter_index ] ), //sets other letter
+		   new_letter == other_letter ) )                               
 	    {
 	      letter_index++;
 	    }
@@ -56,21 +59,26 @@ void ContactContainer::add_contact( Contact contact )
 	    {
 	      is_done = true;
 	    }
-	  else if ( name[ letter_index ] < other_name[ letter_index ] )
+	  else if ( new_letter < other_letter )
 	    {
 	      is_done = true;
 	    }
-	  else
-	    letter_index++;
+	  else //if the new_letter > other_letter
+	    {
+	      is_done = true;
+	      it++;
+	    }
 	}      
       if ( it == contact_letters[ letter ] )
 	{
 	  set_letter=true;
 	};
     }
-  contact_list.insert( it, ( contact_map[ contact.get_id() ] = contact ) );
+  ContactList::iterator insert_it = contact_list.insert( it, ( contact_map[ contact.get_id() ] = contact ) );
   if (set_letter)
-      contact_letters[ letter ] = it;
+    {
+      contact_letters[ letter ] = insert_it;
+    }
 }
 
 ContactContainer::ContactId ContactContainer::get_next_id()
