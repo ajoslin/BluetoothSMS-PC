@@ -20,7 +20,8 @@ class MessageThread
   Contact::ContactId get_owner_id();
   
   //Used for iterating through messages
-  MessageIterator iterator();
+  MessageIterator begin();
+  MessageIterator end();
   
   //Handles sending a message to the owner of the Message thread
   void send_message(Message message);

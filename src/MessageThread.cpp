@@ -4,9 +4,13 @@ Contact::ContactId MessageThread::get_owner_id()
 {
   return id;
 }
-MessageThread::MessageIterator MessageThread::iterator()
+MessageThread::MessageIterator MessageThread::begin()
 {
   return messages.begin();
+}
+MessageThread::MessageIterator MessageThread::end()
+{
+  return messages.end();
 }
 void MessageThread::send_message(Message message)
 {
