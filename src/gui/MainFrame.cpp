@@ -4,7 +4,7 @@
 MainFrame::MainFrame(const wxString title)
 	: wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxDefaultSize)
 {
-	main_boxsizer = new wxBoxSizer(wxVERTICAL);
+	main_sizer = new wxBoxSizer(wxVERTICAL);
 
 	//Create the toolbar
 	main_toolbar = CreateToolBar(wxTB_TEXT | wxTB_HORIZONTAL);
@@ -31,22 +31,22 @@ MainFrame::MainFrame(const wxString title)
 	messages_search->GetSize(&width, &height);
 	messages_search->SetMinSize(wxSize(width*2, height));
 
-	messages_panel = new MessageThreadsPanel(this);
+	messages_panel = new MessageGroupPanel(this);
 	messages_panel->SetMinSize(wxSize(window_width, window_height/2));
 
-	main_boxsizer->AddSpacer(15);
-	main_boxsizer->Add(contacts_search);
-	main_boxsizer->Add(contacts_list);
-	main_boxsizer->Add(contacts_open_button);
-	main_boxsizer->AddSpacer(30);
-	main_boxsizer->Add(messages_search);
-	main_boxsizer->Add(messages_panel);
+	main_sizer->AddSpacer(15);
+	main_sizer->Add(contacts_search);
+	main_sizer->Add(contacts_list);
+	main_sizer->Add(contacts_open_button);
+	main_sizer->AddSpacer(30);
+	main_sizer->Add(messages_search);
+	main_sizer->Add(messages_panel);
 
 	Connect(contacts_search->GetId(), wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(MainFrame::event_search_contacts));
 	//Connect(contacts_list->GetId(), wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler(MainFrame::event_contact_doubleclicked));
 	Connect(messages_search->GetId(), wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler(MainFrame::event_search_messages));
 
-	SetSizerAndFit(main_boxsizer);
+	SetSizerAndFit(main_sizer);
 }
 
 void MainFrame::event_search_contacts(wxCommandEvent & e)

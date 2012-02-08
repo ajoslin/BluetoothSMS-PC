@@ -6,7 +6,7 @@
 #include "wx/toolbar.h"
 #include "wx/srchctrl.h"
 #include "gui/ContactsListBox.h"
-#include "gui/MessageThreadsPanel.h"
+#include "gui/MessageGroupPanel.h"
 
 //Toolbar options
 enum ToolbarOptions
@@ -17,7 +17,7 @@ enum ToolbarOptions
 class MainFrame : public wxFrame
 {
 private:
-	wxBoxSizer * main_boxsizer;
+	wxBoxSizer * main_sizer;
 
 	wxToolBar * main_toolbar;
 
@@ -28,7 +28,7 @@ private:
 
 	//message threads list with search
 	wxSearchCtrl * messages_search;
-	MessageThreadsPanel * messages_panel;
+	MessageGroupPanel * messages_panel;
 
 	//wxevents called by search controls
 	void event_search_contacts(wxCommandEvent &);

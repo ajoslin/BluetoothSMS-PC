@@ -3,6 +3,8 @@
 #define STR_NAME 			"Name"
 #define STR_NUMBER 			"Number"
 
+#define STR_MESSAGES		"Messages"
+
 #define STR_ADD_DEVICE		"Add Device"
 
 #define STR_SEARCH_CONTACT	"Search Contacts..."
