@@ -1,12 +1,16 @@
 #include "gui/ContactsListBox.h"
+#include "gui/dimensions.h"
 
 ContactsListBox::ContactsListBox(wxWindow *parent)
 	: wxListBox(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxArrayString(), wxLB_SINGLE)
 {
+
 	bsms::Contact("Bob Smith", "22-22222222");
 	bsms::Contact("Harry Jones", "40040404");
 	bsms::Contact("Andy Joslin", "72602119");
 	bsms::Contact("Tyler Dodge", "9392040");
+
+	SetMinSize(wxSize(DIM_CONTACTS_W, DIM_CONTACTS_H));
 
 	repopulate();
 }

@@ -5,25 +5,23 @@
 
 #include "wx/wx.h"
 #include "MessageThread.h"
-#include "gui/MessagePanel.h"
 #include "gui/SearchableItemInterface.h"
 #include <vector>
 
-enum MsgAlign {
-	MSGALIGN_Left,
-	MSGALIGN_Right,
-};
+//fwd declaration
+class MessagePanel;
 
 class MessageGroupPanel : public wxPanel, SearchableItemInterface
 {
 private:
-	wxBoxSizer * main_sizer;
-	int items_count;
+	wxStaticBoxSizer * main_sizer;
+
+	std::vector<MessagePanel *> message_panels;
 
 public:
 	MessageGroupPanel(wxWindow * parent);
 
-	void add_message(bsms::Message m);
+	void add_message(bsms::Message m, int align = wxALIGN_CENTER);
 
 	void set_search_key(wxString);
 

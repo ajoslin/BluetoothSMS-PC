@@ -8,23 +8,25 @@
 class MessagePanel : public wxPanel, SearchableItemInterface
 {
 private:
-	wxBoxSizer * main_sizer;
+	wxStaticBoxSizer * main_sizer;
 	wxBoxSizer * info_sizer;
+	wxBoxSizer * message_sizer;
 
-	wxStaticText * sender_label;
-	wxStaticText * date_label;
-	wxStaticText * message_label;
+	wxTextCtrl * sender_label;
+	wxTextCtrl * date_label;
+	wxTextCtrl * message_label;
 
 	bsms::Message message;
 
 public:
-	MessagePanel(wxWindow * parent, bsms::Message message);
+	MessagePanel(wxWindow * parent, bsms::Message message, int align = wxALIGN_CENTER);
 
 	void set_message(bsms::Message message);
 
 	void set_search_key(wxString);
 
-	wxString get_message_text() { return message_label->GetLabel(); }
+	wxString get_message_text() { return message_label->GetValue(); }
+	wxString get_sender_text() { return sender_label->GetValue(); }
 };
 
 #endif

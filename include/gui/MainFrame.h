@@ -5,8 +5,10 @@
 #include "wx/wx.h"
 #include "wx/toolbar.h"
 #include "wx/srchctrl.h"
-#include "gui/ContactsListBox.h"
-#include "gui/MessageGroupPanel.h"
+
+//Fwd declaration
+class ContactsListBox;
+class MessageGroupPanel;
 
 //Toolbar options
 enum ToolbarOptions
@@ -28,7 +30,7 @@ private:
 
 	//message threads list with search
 	wxSearchCtrl * messages_search;
-	MessageGroupPanel * messages_panel;
+	MessageGroupPanel * message_group_panel;
 
 	//wxevents called by search controls
 	void event_search_contacts(wxCommandEvent &);
